@@ -9,7 +9,11 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "test": "jest"
+    "test": "jest",
+    "heroku-postbuild": "npm run build",
+    "git-push": "git push && git push heroku master",
+    "gc": "git add . && git commit -m",
+    "gcp": "npm run gc -- \"commit before deploy\" && git push && git push heroku master"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
