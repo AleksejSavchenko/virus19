@@ -10,10 +10,10 @@ const apiClient = axios.create({
 })
 
 export default {
-  getAllInfo() {
+  getCommonData() {
     return apiClient.get('/all')
   },
-  getByCountriesInfo() {
+  getCountriesData() {
     return apiClient.get('/countries')
   }
 }

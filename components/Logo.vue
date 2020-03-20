@@ -6,7 +6,7 @@
 
 <style lang="scss">
 .VueToNuxtLogo {
-  animation: turn 2.5s linear forwards 1.5s, hiding 1.5s linear forwards 5s, hidingByIndex 2s forwards 7s;
+  animation: turn 2s linear forwards .5s, hiding 1s linear forwards 3s, hidingByIndex 1s forwards 5s;
   position: absolute;
   transform: rotateX(180deg);
   overflow: hidden;

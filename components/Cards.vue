@@ -1,5 +1,5 @@
 <template>
-  <v-row dense>
+  <v-row dense class="pb-10">
     <v-col
       v-for="(item, i) in allInfo"
       :key="i"
@@ -21,10 +21,10 @@
 
           <v-avatar
             class="ma-3"
-            size="80"
-
+            :size="mobile ? '80' : '125'"
+            :tile="!mobile"
           >
-            <v-img :src="item.img"></v-img>
+            <v-img :src="item.img" v-if="item.img"></v-img>
           </v-avatar>
         </div>
       </v-card>
@@ -39,6 +39,11 @@
       allInfo: {
         type: Object,
         default: undefined
+      }
+    },
+    computed: {
+      mobile() {
+        return this.$store.state.mobile
       }
     }
   }

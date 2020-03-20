@@ -56,6 +56,7 @@ export default {
   */
   axios: {
   },
+  store: true,
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

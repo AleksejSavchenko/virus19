@@ -37,6 +37,7 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
   const WIDTH_MOBILE_VERSION = 768
   export default {
     data() {
@@ -62,8 +63,12 @@
       }
     },
     methods: {
+      ...mapMutations({
+        SET_MOBILE: 'SET_MOBILE' // map `this.add()` to `this.$store.commit('increment')`
+      }),
       handleResize() {
-        this.mobile = document.documentElement.clientWidth < WIDTH_MOBILE_VERSION
+        if(document.documentElement.clientWidth < WIDTH_MOBILE_VERSION === this.$store.state.mobile) return;
+        this.SET_MOBILE(document.documentElement.clientWidth < WIDTH_MOBILE_VERSION)
       }
     },
     mounted() {

@@ -43,7 +43,6 @@ const objInfo = {
     label: 'Оновлено',
     subtitle: 'Останній час та дата оновлення інформації:',
     color: '#1f647b',
-    img: 'https://lh3.googleusercontent.com/proxy/gvlt3O0GDHbqxN67fMJkSZfFZ5Qtr_n14lJwl08DGj-pkSgUl7KTtFmIvWsDlCeMhy4GACeTKGjibeghkJLUVSseQrqzQqH0IhushY6f1-HhMpMGzke3nWwZ2i7qJdZ0Xm-bw-BvsGLX02avTnxJdxmEZeul'
   }
 };
 
@@ -52,47 +51,40 @@ export default {
     Logo,
     Cards
   },
-  async asyncData() {
-    const { data } = await EventService.getAllInfo()
-    return {
-      allInfo: data
-    }
-  },
-  methods: {
-    async updateAllInfo() {
-      const { data } = await EventService.getAllInfo()
-      this.allInfo = data;
-    }
+  async fetch ({ store }) {
+    let { data } = await EventService.getCommonData()
+    store.commit('SET_COMMON_DATA', data)
   },
   computed: {
     preparedData() {
       const result = {};
-      Object.keys(this.allInfo).forEach(item => {
+      const commonData = this.$store.state.commonData;
+      Object.keys(commonData).forEach(item => {
         result[item] = {
           ...objInfo[item],
-          value: this.allInfo[item]
+          value: commonData[item]
         }
       })
 
       result.updated.value = this.$moment(result.updated.value).format('HH:MM:SS DD/MM/YYYY')
       return result;
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss">
 
-  .v-card {
-    position: relative;
-    opacity: 0;
-    animation: show 1s linear forwards 5s;
-  }
+  /*.v-card {*/
+  /*  position: relative;*/
+  /*  opacity: 0;*/
+  /*  animation: show 1s linear forwards 5s;*/
+  /*}*/
 
 
-  @keyframes show {
-    100% {
-      opacity: 1;
-    }
-  }
+  /*@keyframes show {*/
+  /*  100% {*/
+  /*    opacity: 1;*/
+  /*  }*/
+  /*}*/
 </style>
