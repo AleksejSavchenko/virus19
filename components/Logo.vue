@@ -1,11 +1,11 @@
 <template>
-  <div class="VueToNuxtLogo">
+  <div class="covidLogo">
     <div class="img-bg"></div>
   </div>
 </template>
 
 <style lang="scss">
-.VueToNuxtLogo {
+.covidLogo {
   animation: turn 2s linear forwards .5s, hiding 1s linear forwards 3s, hidingByIndex 1s forwards 5s;
   position: absolute;
   transform: rotateX(180deg);
