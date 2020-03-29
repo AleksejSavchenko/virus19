@@ -4,7 +4,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: '%s - ' + process.env.npm_package_name || '',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -31,10 +31,10 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  // buildModules: [
-  //   '@nuxtjs/vuetify',
-  //   '@nuxtjs/moment',
-  // ],
+  buildModules: [
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
+  ],
   moment: {
     defaultLocale: 'uk',
     locales: ['uk']
@@ -55,7 +55,6 @@ export default {
   */
   axios: {
   },
-  store: true,
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
