@@ -31,10 +31,10 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-    '@nuxtjs/vuetify',
-    '@nuxtjs/moment',
-  ],
+  // buildModules: [
+  //   '@nuxtjs/vuetify',
+  //   '@nuxtjs/moment',
+  // ],
   moment: {
     defaultLocale: 'uk',
     locales: ['uk']
@@ -46,6 +46,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
   ],
   /*
   ** Axios module configuration
